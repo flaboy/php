@@ -13,6 +13,8 @@ RUN yum install php-mongodb${PHP_VERSION} -y
 RUN yum install php-msgpack${PHP_VERSION} -y
 RUN yum install php-swoole${PHP_VERSION} -y
 RUN yum install php-zookeeper${PHP_VERSION} -y
+
+RUN find "$PHP_PATH/etc/"
 RUN yum install php-gd${PHP_VERSION} -y
 
 RUN sed -i 's/127.0.0.1:9000/[::]:9000/g' "$PHP_PATH/etc/php-fpm.d/www.conf"
